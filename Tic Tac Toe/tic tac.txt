@@ -1,0 +1,280 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+
+namespace ticTacToe
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //FOR BACKGROUND,FOREGROUND COLOR
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Black;
+
+            //COPY BY INTERNET
+            string Progresbar = "Tic Tac Toe";
+            var title = "";
+            while (true)
+            {
+                for (int i = 0; i < Progresbar.Length; i++)
+                {
+                    title += Progresbar[i];
+                    Console.Title = title;
+                    Thread.Sleep(100);
+                }
+                title = "";
+
+		
+		//Tic Tac Toe Pseudo Code
+
+		//1) Create an array of size [2,2]
+		//2) Create an infinite loop
+			//2.1) Create conditions to check if user wins
+			//2.2) Create conditions to check if computer wins
+			//2.3) Get input for x-axis of user
+			//2.4) Get input for y-axis of user
+			//2.5) If the block where user input is already occpuied
+				//2.5.1) Print "You cannot put here. This block is occupied. The game will not quit"
+			//2.5) End If
+			//2.6) Create conditions for computer's logic
+		//3) End Infinite loop
+
+                Console.WriteLine("\nTic Toc Toe");
+                Console.WriteLine("\nDeveloper: M.Maaz (7743)\n");
+
+                //X sign for cross sign = User
+                //V sign for right sign = Computer
+
+                //Making main array
+                string[,] table = new string[3, 3];
+
+                //Setting all values to 0
+                table[0, 0] = "0";
+                table[0, 1] = "0";
+                table[0, 2] = "0";
+                table[1, 0] = "0";
+                table[1, 1] = "0";
+                table[1, 2] = "0";
+                table[2, 0] = "0";
+                table[2, 1] = "0";
+                table[2, 2] = "0";
+
+		//infinite loop
+	
+                for (; ; )
+                {
+                    //Conditions for checking if player wins
+                    if (table[0, 0] == "X" && table[1, 1] == "X" && table[2, 2] == "X")
+                    {
+                        Console.WriteLine("Player wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[0, 0] == "X" && table[0, 1] == "X" && table[0, 2] == "X")
+                    {
+                        Console.WriteLine("Player wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[1, 0] == "X" && table[1, 1] == "X" && table[1, 2] == "X")
+                    {
+                        Console.WriteLine("Player wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[2, 0] == "X" && table[2, 1] == "X" && table[2, 2] == "X")
+                    {
+                        Console.WriteLine("Player wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[0, 0] == "X" && table[1, 0] == "X" && table[2, 0] == "X")
+                    {
+                        Console.WriteLine("Player wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[0, 1] == "X" && table[1, 1] == "X" && table[2, 1] == "X")
+                    {
+                        Console.WriteLine("Player wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[0, 2] == "X" && table[1, 2] == "X" && table[2, 2] == "X")
+                    {
+                        Console.WriteLine("Player wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[0, 2] == "X" && table[1, 1] == "X" && table[2, 0] == "X")
+                    {
+                        Console.WriteLine("Player wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+
+                    //Conditions for checking if computer wins
+                    if (table[0, 0] == "Y" && table[1, 1] == "Y" && table[2, 2] == "Y")
+                    {
+                        Console.WriteLine("Computer wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[0, 0] == "Y" && table[0, 1] == "Y" && table[0, 2] == "Y")
+                    {
+                        Console.WriteLine("Computer wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[1, 0] == "Y" && table[1, 1] == "Y" && table[1, 2] == "Y")
+                    {
+                        Console.WriteLine("Computer wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[2, 0] == "Y" && table[2, 1] == "Y" && table[2, 2] == "Y")
+                    {
+                        Console.WriteLine("Computer wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[0, 0] == "Y" && table[1, 0] == "Y" && table[2, 0] == "Y")
+                    {
+                        Console.WriteLine("Computer wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[0, 1] == "Y" && table[1, 1] == "Y" && table[2, 1] == "Y")
+                    {
+                        Console.WriteLine("Computer wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[0, 2] == "Y" && table[1, 2] == "Y" && table[2, 2] == "Y")
+                    {
+                        Console.WriteLine("Computer wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else if (table[0, 2] == "Y" && table[1, 1] == "Y" && table[2, 0] == "Y")
+                    {
+                        Console.WriteLine("Computer wins!");
+                        Console.ReadKey();
+                        break;
+                    }
+
+                    int xAxis, yAxis;
+                    xAxis = yAxis = 0;
+
+                    //Code for input of x-axis
+                    Console.WriteLine("Enter the position where you want to put your sign on x-axis");
+                    xAxis = Convert.ToInt32(Console.ReadLine());
+
+                    //Code for input of y-axis
+                    Console.WriteLine("Enter the position where you want to put your sign on y-axis");
+                    yAxis = Convert.ToInt32(Console.ReadLine());
+
+                    if (table[xAxis, yAxis] == "X" || table[xAxis, yAxis] == "Y")
+                    {
+                        Console.WriteLine("You cannot put here. This block is occupied.\nThe game will not quit");
+                        Console.ReadKey();
+                        break;
+                    }
+
+                    table[xAxis, yAxis] = "X";
+
+                    //Conditions for computer logic
+                    if (table[1, 1] == "X")
+                    {
+                        table[0, 0] = "Y";
+                    }
+
+                    else if (table[0, 0] == "X")
+                    {
+                        table[1, 1] = "Y";
+                    }
+
+                    else if (table[2, 2] == "X")
+                    {
+                        table[1, 1] = "Y";
+                    }
+                    else if (table[0, 1] == "X")
+                    {
+                        table[0, 2] = "Y";
+                    }
+
+                    else if (table[0, 2] == "X")
+                    {
+                        table[0, 1] = "Y";
+                    }
+
+                    else if (table[1, 0] == "X")
+                    {
+                        table[0, 2] = "Y";
+                    }
+
+                    else if (table[0, 2] == "X")
+                    {
+                        table[1, 0] = "Y";
+                    }
+
+                    else if (table[1, 1] == "X")
+                    {
+                        table[1, 0] = "Y";
+                    }
+
+                    else if (table[1, 0] == "X")
+                    {
+                        table[1, 1] = "Y";
+                    }
+
+                    else if (table[1, 1] == "X")
+                    {
+                        table[1, 2] = "Y";
+                    }
+
+                    else if (table[1, 2] == "X")
+                    {
+                        table[1, 1] = "Y";
+                    }
+
+                    else if (table[2, 0] == "X")
+                    {
+                        table[1, 2] = "Y";
+                    }
+
+                    else if (table[1, 2] == "X")
+                    {
+                        table[2, 0] = "Y";
+                    }
+
+                    else if (table[2, 0] == "X")
+                    {
+                        table[2, 1] = "Y";
+                    }
+
+                    else if (table[2, 1] == "X")
+                    {
+                        table[2, 0] = "Y";
+                    }
+
+                    else if (table[2, 1] == "X")
+                    {
+                        table[2, 2] = "Y";
+                    }
+
+                    else if (table[2, 2] == "X")
+                    {
+                        table[2, 1] = "Y";
+                    }
+
+                }
+            }
+        }
+    }
+}
